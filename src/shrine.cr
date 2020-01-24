@@ -170,6 +170,10 @@ class Shrine
       UploadedFile.from_json(json)
     end
 
+    def uploaded_file(object : UploadedFile)
+      object
+    end
+
     # Prints a warning to the logger.
     def warn(message)
       Log.warn { "SHRINE WARNING: #{message}" }
