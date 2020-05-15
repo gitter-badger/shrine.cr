@@ -25,6 +25,10 @@ class Shrine
   class FileNotFound < Error
   end
 
+  # Raised by the attacher when assigned uploaded file is not cached.
+  class NotCached < Error
+  end
+
   Habitat.create do
     setting storages : Hash(String, Storage::Base) = Hash(String, Storage::Base).new
   end
@@ -158,7 +162,7 @@ class Shrine
       Habitat.raise_if_missing_settings!
     end
 
-    def uploaded_file(hash : Hash(String, String | Shrine::UploadedFile::MetadataType))
+    def uploaded_file(hash : Hash(String, String | UploadedFile::MetadataType))
       self.uploaded_file(hash.to_json)
     end
 
