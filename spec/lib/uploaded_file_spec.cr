@@ -373,9 +373,9 @@ Spectator.describe Shrine::UploadedFile do
     it "returns uploaded file data hash" do
       expect(uploaded_file.data).to eq(
         {
-          "id" => id,
+          "id"          => id,
           "storage_key" => "cache",
-          "metadata" => metadata
+          "metadata"    => metadata,
         }
       )
     end
